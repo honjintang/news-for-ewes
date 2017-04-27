@@ -1,8 +1,15 @@
-var apiRequestURL = ['http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/politics/blog/2014/feb/17/alex-salmond-speech-first-minister-scottish-independence-eu-currency-live?show-fields=header', 'http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/world/2017/mar/06/why-do-sheep-get-horny-in-winter-because-the-light-is-baaad-says-study?show-fields=header'];
+var url = 'politics/blog/2014/feb/17/alex-salmond-speech-first-minister-scottish-independence-eu-currency-live';
+
+var apiRequestURL = ["http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/" + url];
+
+var apiRequestURLString = 'http://news-summary-api.herokuapp.com/aylien?apiRequestUrl=https://api.aylien.com/api/v1/summarize?url=https://www.theguardian.com/' + url;
+var alienApiRequest = [apiRequestURLString];
+
 var newsList = new NewsList();
 makeAPIRequests(apiRequestURL);
 var controller = new Controller(newsList);
 controller.sendToIndex();
+makeAlienApiRequests(alienApiRequest);
 
 
 function makeAPIRequests(apiRequestURL) {
@@ -12,5 +19,12 @@ function makeAPIRequests(apiRequestURL) {
     xhr.send();
     newsList.addHeadline(JSON.parse(xhr.response).response.content.webTitle);
 }
-
+}
+function makeAlienApiRequests(alienApiRequest) {
+  for(i=0;i<alienApiRequest.length;i++) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", alienApiRequest[i], false);
+    xhr.send();
+    document.getElementById(i).innerHTML = JSON.parse(xhr.response).sentences;
+}
 }

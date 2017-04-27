@@ -6,7 +6,9 @@
 NewsListView.prototype.htmlConverter = function() {
   var htmlString = "<ul>";
   for (i = 0; i < this.newsList.list.length; i++) {
-    htmlString += "<div><li>" + this.newsList.list[i] + "</li></div>";
+    htmlString += "<div><li>" + this.newsList.list[i] + "</li></div></br><div id="+ i + "></div>";
+
+
    }
    return htmlString + "</ul>";
 };
