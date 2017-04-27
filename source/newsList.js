@@ -7,6 +7,11 @@
     this.list.push(headline);
   };
 
+
+  NewsList.prototype.getHeadline = function(index) {
+    return this.list[index];
+  };
+
   NewsList.prototype.getHeadlines = function() {
     var headlines = "";
     for(i = 0; i < this.list.length; i++) {
