@@ -57,12 +57,15 @@ function makeAlienApiRequests() {
   return summaries;
 }
 
+function addSummaries() {
+  var summaries = makeAlienApiRequests();
+  for(i=0;i<10;i++){
+    document.getElementById(i).innerHTML = summaries[i].sentences[0];
+  }
+}
 
-// function addSummaries() {
-//   for(i=0;i<10;i++){
-//     document.getElementById(i).innerHTML = SummaryArray[i];
-//   }
-// }
+addSummaries();
+
 
 
 
