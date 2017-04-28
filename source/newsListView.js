@@ -6,7 +6,7 @@
 NewsListView.prototype.htmlConverter = function() {
   var htmlString = "<ul>";
   for (i = 0; i < this.newsList.list.length; i++) {
-    htmlString += "<div><li><a href='#headline" + i + "'>" + this.newsList.list[i] + "</a></li></div></br><img src=" + 'public/sheep_' + i + '.jpg><div id=' + i + "></div>";
+    htmlString += "<div><a href='#headline" + i + "'>" + this.newsList.list[i] + "</a></div></br><div id ='picture'><img src=" + 'public/sheep_' + i + ".jpg></div><div class='summaries' id=" + i + "></div></br>";
    }
    return htmlString + "</ul>";
 };
