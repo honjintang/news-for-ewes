@@ -20,11 +20,9 @@ function makeAPIRequests(url) {
   xhr.send();
   var jason_object = JSON.parse(xhr.responseText);
   return jason_object;
-  // for(i=0;i<10;i++){
-  //   headlines.push(jason_object.response.results[i].webTitle);
-  // }
-  // return headlines;
 }
+
+
 
 function extractHeadlines(jason_object) {
   var headlines = [];
@@ -39,6 +37,37 @@ headline_array = extractHeadlines(makeAPIRequests(guardianApiUrl));
 newsList.addHeadline(headline_array);
 var controller = new Controller(newsList);
 controller.sendToIndex();
+
+
+function extractUrls(jason_object) {
+  var Urls = [];
+  for(i=0;i<10;i++){
+    Urls.push(jason_object.response.results[i].webUrl);
+  }
+  return Urls;
+}
+
+function makeAlienApiRequests() {
+  var urlarray = extractUrls(makeAPIRequests(guardianApiUrl));
+  summaries = [];
+  urlarray.forEach(function(url) {
+    var aylienUrl = 'http://news-summary-api.herokuapp.com/aylien?apiRequestUrl=https://api.aylien.com/api/v1/summarize?url=' + url;
+    summaries.push(makeAPIRequests(aylienUrl));
+  });
+  return summaries;
+}
+
+
+// function addSummaries() {
+//   for(i=0;i<10;i++){
+//     document.getElementById(i).innerHTML = SummaryArray[i];
+//   }
+// }
+
+
+
+
+
 // makeAlienApiRequests(alienApiRequest);
 
 
