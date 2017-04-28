@@ -3,8 +3,9 @@
     this.list = [];
   }
 
-  NewsList.prototype.addHeadline = function(headline) {
-    this.list.push(headline);
+  NewsList.prototype.addHeadline = function(headlines) {
+    // this.list.push(headline);
+    this.list = headlines;
   };
 
 
