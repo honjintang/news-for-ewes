@@ -1,6 +1,10 @@
 # News for Ewes
 
-### Welcome to News for Ewes! The latest news about grazing, bleating and flocking!
+### Welcome to News for Ewes! Summarising latest political news for female sheep!
+
+Week 7 Makers Academy Project (Further JavaScript). This is a single page web app written in frontend JavaScript, CSS and HTML. The app grabs the top ten political headlines from the Guardian newspaper API and displays them on a page. Clicking on a headline will show a summary of the article. 
+
+![Screenshot](http://imgur.com/gBL09c9.png)
 
 ### User Stories ###
 
