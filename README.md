@@ -6,6 +6,14 @@ Week 7 Makers Academy Project (Further JavaScript). This is a single page web ap
 
 ![Screenshot](http://imgur.com/gBL09c9.png)
 
+### Concepts learnt
+
+* Events and event handlers.
+* Manipulating the Document Object Model (DOM).
+* Ajax.
+* Frontend templating.
+* Frontend routing.
+
 ### User Stories ###
 
 ```
